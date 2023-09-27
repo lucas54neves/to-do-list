@@ -1,0 +1,11 @@
+:root {
+  --black-700: #0d0d0d;
+
+  --blue: #4ea8de;
+  --purple: #5e60ce;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
