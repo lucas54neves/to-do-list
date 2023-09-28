@@ -2,11 +2,13 @@
   display: flex;
   justify-content: center;
   margin-top: -27px;
+
+  width: 100%;
 }
 
 .add textarea {
   margin-right: 0.5rem;
-  width: 39.875rem;
+  width: 50%;
   height: 1.5rem;
 
   font-family: 'Inter', sans-serif;
@@ -28,8 +30,11 @@
 }
 
 .add button {
-  width: 5.625rem;
+  width: fit-content;
   height: 3.375rem;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   background-color: var(--blue);
 

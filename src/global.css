@@ -19,3 +19,9 @@
 body {
   background-color: #191919;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}

@@ -95,29 +95,31 @@ export const ToDoList = ({
   toDoListIsEmpty,
 }: ToDoListProps) => {
   return (
-    <div className={styles.toDoList}>
-      <header>
-        <div className={styles.createdTasks}>
-          <span>Tarefas criadas</span>
-          <div>{numberOfCreatedTasks}</div>
-        </div>
-        <div className={styles.concludedTasks}>
-          <span>Concluídas</span>
-          <div
-            className={styles.concludedTasksCircle}
-          >{`${numberOfConcludedTasks} de ${numberOfCreatedTasks}`}</div>
-        </div>
-      </header>
-      <hr className={styles.divider} />
-      {toDoListIsEmpty() ? (
-        <EmptyList />
-      ) : (
-        <NotEmptyList
-          toDoList={toDoList}
-          handleConcludedTask={handleConcludedTask}
-          handleDeleteTask={handleDeleteTask}
-        />
-      )}
+    <div className={styles.toDoListContainer}>
+      <div className={styles.toDoList}>
+        <header>
+          <div className={styles.createdTasks}>
+            <span>Tarefas criadas</span>
+            <div>{numberOfCreatedTasks}</div>
+          </div>
+          <div className={styles.concludedTasks}>
+            <span>Concluídas</span>
+            <div
+              className={styles.concludedTasksCircle}
+            >{`${numberOfConcludedTasks} de ${numberOfCreatedTasks}`}</div>
+          </div>
+        </header>
+        <hr className={styles.divider} />
+        {toDoListIsEmpty() ? (
+          <EmptyList />
+        ) : (
+          <NotEmptyList
+            toDoList={toDoList}
+            handleConcludedTask={handleConcludedTask}
+            handleDeleteTask={handleDeleteTask}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -1,12 +1,22 @@
-.toDoList {
-  width: 100%;
-
-  display: grid;
+.toDoListContainer {
+  display: flex;
   justify-content: center;
 }
 
+.toDoList {
+  width: 60%;
+
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .toDoList {
+    width: 80%;
+  }
+}
+
 .toDoList header {
-  width: 46rem;
+  width: 100%;
 
   display: flex;
   justify-content: space-between;
@@ -60,7 +70,7 @@
 }
 
 .toDoList .divider {
-  width: 46rem;
+  width: 100%;
   margin-top: 1.5rem;
 
   border-bottom-left-radius: 80px;
@@ -99,12 +109,16 @@
 }
 
 .toDo {
-  width: 46rem;
+  width: 100%;
 
   background-color: var(--gray-500);
 
   display: flex;
   justify-content: space-between;
+
+  margin-bottom: 0.75rem;
+
+  border-radius: 8px;
 }
 
 .toDo .circle {
