@@ -28,8 +28,8 @@ export const App = () => {
   const handleCreateNewTask = (event: FormEvent) => {
     event.preventDefault();
 
-    setToDoList([
-      ...toDoList,
+    setToDoList((state) => [
+      ...state,
       { description: newTaskDescription, concluded: false, id: uuidv4() },
     ]);
 
@@ -50,13 +50,13 @@ export const App = () => {
     event.target.setCustomValidity('Esse campo é obrigatório!');
   };
 
-  const handleConcludedTask = (id: string) => {
-    setToDoList(
-      toDoList.map((toDo) => {
+  const handleConcludedTask = (id: string, isChecked: boolean) => {
+    setToDoList((state) =>
+      state.map((toDo) => {
         if (toDo.id === id) {
           const concludedTask = toDo;
 
-          concludedTask.concluded = !concludedTask.concluded;
+          concludedTask.concluded = isChecked;
 
           return concludedTask;
         }
@@ -67,7 +67,7 @@ export const App = () => {
   };
 
   const handleDeleteTask = (id: string) => {
-    setToDoList(toDoList.filter((toDo) => toDo.id !== id));
+    setToDoList((state) => state.filter((toDo) => toDo.id !== id));
   };
 
   useEffect(() => {
@@ -82,10 +82,6 @@ export const App = () => {
 
     setNumberOfConcludedTasks(numberOfConcludedTasksAux);
     setNumberOfCreatedTasks(toDoList.length);
-  }, [toDoList]);
-
-  useEffect(() => {
-    console.log(toDoList);
   }, [toDoList]);
 
   return (

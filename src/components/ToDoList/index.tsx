@@ -7,20 +7,20 @@ interface ToDoListProps {
   numberOfCreatedTasks: number;
   numberOfConcludedTasks: number;
   toDoList: ToDoType[];
-  handleConcludedTask: (id: string) => void;
+  handleConcludedTask: (id: string, isChecked: boolean) => void;
   handleDeleteTask: (id: string) => void;
   toDoListIsEmpty: () => boolean;
 }
 
 interface NotEmptyListProps {
   toDoList: ToDoType[];
-  handleConcludedTask: (id: string) => void;
+  handleConcludedTask: (id: string, isChecked: boolean) => void;
   handleDeleteTask: (id: string) => void;
 }
 
 interface TaskProps {
   toDo: ToDoType;
-  handleConcludedTask: (id: string) => void;
+  handleConcludedTask: (id: string, isChecked: boolean) => void;
   handleDeleteTask: (id: string) => void;
 }
 
@@ -36,11 +36,19 @@ const EmptyList = () => (
 
 const Task = ({ toDo, handleConcludedTask, handleDeleteTask }: TaskProps) => (
   <div key={toDo.id} className={styles.toDo}>
-    <div className={styles.circle} onClick={() => handleConcludedTask(toDo.id)}>
+    <div className={styles.circle}>
       {toDo.concluded ? (
-        <CheckCircle size={17.45} color='#4ea8de' />
+        <CheckCircle
+          size={17.45}
+          color='#4ea8de'
+          onClick={() => handleConcludedTask(toDo.id, false)}
+        />
       ) : (
-        <Circle size={17.45} color='#4ea8de' />
+        <Circle
+          size={17.45}
+          color='#4ea8de'
+          onClick={() => handleConcludedTask(toDo.id, true)}
+        />
       )}
     </div>
     <div
@@ -52,8 +60,12 @@ const Task = ({ toDo, handleConcludedTask, handleDeleteTask }: TaskProps) => (
     >
       {toDo.description}
     </div>
-    <div className={styles.trash} onClick={() => handleDeleteTask(toDo.id)}>
-      <Trash size={17.45} color='#4ea8de' />
+    <div className={styles.trash}>
+      <Trash
+        size={17.45}
+        color='#4ea8de'
+        onClick={() => handleDeleteTask(toDo.id)}
+      />
     </div>
   </div>
 );
