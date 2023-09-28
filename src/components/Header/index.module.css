@@ -1,4 +1,4 @@
-header {
+.headerMain {
   background-color: var(--black-700);
   height: 12.5rem;
   width: 100%;
@@ -8,18 +8,18 @@ header {
   justify-content: center;
 }
 
-.rocket {
+.headerMain .rocket {
   color: var(--blue);
   margin-right: 0.75rem;
 }
 
-header span {
+.headerMain span {
   color: var(--blue);
   font-family: 'Inter', sans-serif;
   font-size: 2.5rem;
   font-weight: bold;
 }
 
-span + span {
+.headerMain span + span {
   color: var(--purple);
 }

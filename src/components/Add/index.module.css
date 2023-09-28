@@ -1,0 +1,49 @@
+.add {
+  display: flex;
+  justify-content: center;
+  margin-top: -27px;
+}
+
+.add textarea {
+  margin-right: 0.5rem;
+  width: 39.875rem;
+  height: 1.5rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+
+  border-radius: 8px;
+
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+
+  border: 0;
+  resize: none;
+
+  padding: 1rem;
+}
+
+.add textarea[value=''] {
+  color: var(--gray-300);
+}
+
+.add button {
+  width: 5.625rem;
+  height: 3.375rem;
+
+  background-color: var(--blue);
+
+  border-radius: 8px;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.4;
+
+  border: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+}
